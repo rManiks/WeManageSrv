@@ -20,6 +20,7 @@ class Address(models.Model):
 class Party(models.Model):
     name = models.CharField(max_length=100)
     address_id = models.ForeignKey(Address, null=True)
+    avatar = models.ImageField(upload_to = 'avatars/', null=True)
 
     def __str__(self):
         return self.name

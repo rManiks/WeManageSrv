@@ -10,7 +10,7 @@ class PropertySerializer(serializers.HyperlinkedModelSerializer):
 class PartySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Party
-        fields = ('name', 'address_id')
+        fields = ('name', 'address_id', 'avatar')
 
 
 class AddressSerializer(serializers.HyperlinkedModelSerializer):
