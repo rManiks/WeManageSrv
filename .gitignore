@@ -73,6 +73,9 @@ target/
 # pyenv
 .python-version
 
+#databse
+*.sqlite3
+
 # celery beat schedule file
 celerybeat-schedule
 
