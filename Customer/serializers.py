@@ -15,6 +15,10 @@ class AddressSerializer(serializers.HyperlinkedModelSerializer):
 
 class PropertySerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
-    address_id = AddressSerializer(required=False)
+    address = AddressSerializer(required=False)
+    owner = PartySerializer(required=False)
+    
+
+
 
 
