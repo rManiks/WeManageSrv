@@ -10,12 +10,14 @@ class PartySerializer(serializers.HyperlinkedModelSerializer):
 class AddressSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Address
-        fields = ('name', 'line_1', 'line_2', 'city', 'state', 'post_code')
+        fields = ('name', 'line_1', 'line_2', 'city', 'state', 'post_code', 'geo_location')
 
 class PropertySerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
-    address = AddressSerializer(required=False)
-    owner = PartySerializer(required=False)
+    id = serializers.IntegerField()
+    picture = serializers.ImageField()
+    address_id = AddressSerializer()
+    owner_id = PartySerializer()
     
 class InspectionEventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

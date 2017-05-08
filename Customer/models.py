@@ -9,8 +9,8 @@ class Address(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=50)
     post_code = models.CharField(max_length=10, default='N/A')
-    misc_info = models.CharField(max_length=200)
-    geo_location = models.IntegerField
+    misc_info = models.CharField(max_length=200, default='')
+    geo_location = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -20,7 +20,7 @@ class Address(models.Model):
 class Party(models.Model):
     name = models.CharField(max_length=100)
     address_id = models.ForeignKey(Address, null=True)
-    avatar = models.ImageField(upload_to = 'avatars/', null=True)
+    avatar = models.ImageField(upload_to = 'avatars/',null=True)
     status = models.CharField(max_length=10, default='ACTIVE')
 
     def __str__(self):
@@ -33,6 +33,7 @@ class Property(models.Model):
     description = models.CharField(max_length=250)
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
     owner_id = models.ForeignKey(Party)
+    picture = models.ImageField(upload_to = 'property/', null=True)
     
     def __str__(self):
         return self.name
