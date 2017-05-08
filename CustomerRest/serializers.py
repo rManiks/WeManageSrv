@@ -22,7 +22,7 @@ class PropertySerializer(serializers.Serializer):
 class InspectionEventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = InspectionEvent
-        fields = ('effective_date', 'description', 'tax_paid', 'eb_paid', 'maintenance_paid', 'well_maintained', 'tenent_complaints')
+        fields = ('property_id', 'effective_date', 'description', 'tax_paid', 'eb_paid', 'maintenance_paid', 'well_maintained', 'tenent_complaints', 'external_feedback', 'maint_required', 'maint_estimate')
 
 class ArtifactSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
